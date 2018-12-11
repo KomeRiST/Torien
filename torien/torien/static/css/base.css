@@ -1,15 +1,135 @@
+/* Палитра цветов */
+/*
+    Белый: #FCFBFB
+    Чёрный: #464747
+    Оранжевый: #E46C3A (светлый)
+    Серый: #DFB9A3 (серо-бежевый)
+    Оранжево-розовый: #FC9964 (почти) (тёмный)
+*/
+
+* {
+    color: #464747;
+}
+
+@font-face {
+    font-family: PFChampion; /* Гарнитура шрифта */
+   /* src: url(/static/fonts/PFChampionScriptPro-Bold.otf);  Путь к файлу со шрифтом */
+   src: url("/static/fonts/MADEEvolveSansEVO-Thin.otf");   Путь к файлу со шрифтом
+}
+
+body {
+    background-color: #FCFBFB;
+    /*background-image: url("/static/css/fabric-of-squares.jpg");*/
+}
+
 /* Моник компа */
 @media (min-width: 1024px) {
     header {
         position: sticky;
         top: 0px;
         height: 50px;
+        z-index: 1000;
+        width: 100%;
+        background-color: black;
     }
 
     .body-container {
         height: 100vh;
         width: 100%;
-        background-color: red;
+        /*background-color: red;*/
+    }
+
+    .site-name {
+        font: normal small-caps bold 5em PFChampion;
+        color: #464747;
+        /* text-shadow: 1px 0em 1px #464747, -1px 0em 1px #464747, 0em 1px 1px #464747, 0em -1px 1px #464747, 0em 0em 1em #464747, 0em 0em 0.9em #464747, 0em 0em 0.8em #464747, 0em 0em 0.7em #464747, 0em 0em 0.6em #000000, 0 0 0em #e46c3a; */
+        letter-spacing: 0.7em;
+        animation: 2s SM;
+    }
+
+    .face {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .face-item {
+        align-self: center;
+        text-align: center;
+        width: 33%;
+    }
+
+    #NM {
+        animation: 1.5s NM;
+    }
+
+    #FC {
+        animation: 2s FC;
+        height: 100vh;
+        background-color: #DFB9A3;
+    }
+
+    #LC {
+        animation: 2s LC;
+        height: 100vh;
+        background-color: #DFB9A3;
+    }
+
+    @keyframes NM {
+      from {
+        margin-top: -5%;
+      }
+
+      to {
+        margin-top: 0;
+      }
+    }
+    @keyframes SM {
+      from {
+        letter-spacing: 0em;
+        opacity: 0;
+      }
+
+      to {
+        letter-spacing: 0.7em;
+        opacity: 1;
+      }
+    }
+    /*
+    @keyframes CCCCC {
+      from {
+        width: 0%;
+        opacity: 0;
+      }
+
+      to {
+        width: 33%;
+        opacity: 1;
+      }
+    }
+    */
+
+    @keyframes FC {
+      from {
+        margin-right: 100%;
+        opacity: 0;
+      }
+
+      to {
+        margin-right: 0;
+        opacity: 1;
+      }
+    }
+    @keyframes LC {
+      from {
+        margin-left: 100%;
+        opacity: 0;
+      }
+
+      to {
+        margin-left: 0;
+        opacity: 1;
+      }
     }
 }
 
