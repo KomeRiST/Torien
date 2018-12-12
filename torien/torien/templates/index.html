@@ -4,23 +4,58 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/my-slider.css' %}"/>
 {% endblock style %}
 
-{% block script %}{% endblock script %}
+{% block script %}
+<script src="{% static 'js/ism-2.2.min.js' %}"></script>
+{% endblock script %}
 
 {% block body %}
 <header>
     <div class="menu-btn"></div>
+    <p class="site-name">Torien</p>
 </header>
 <div class="body-container">
-    <div class="face">
-        <div class="face-item">
-            <div id="FC"></div>
-        </div>
-        <div id="NM" class="face-item"><p class="site-name">Torien</p></div>
-        <div class="face-item">
-            <div id="LC"></div>
-        </div>
+    <div class="ism-slider" data-transition_type="fade" data-play_type="loop" data-interval="10000"
+         data-image_fx="none" data-radio_type="thumbnail" id="my-slider">
+        <ol>
+            <li>
+                <img src="/media/fotoForCollection/collection-1/1.png">
+                <div class="ism-caption ism-caption-0">Bird of prey</div>
+            </li>
+            <li>
+                <img src="/media/fotoForCollection/collection-2/1.png">
+                <div class="ism-caption ism-caption-0">Birds</div>
+            </li>
+        </ol>
     </div>
+
+    <!--<div class="face">-->
+    <!--<div class="face-item">-->
+    <!--<div id="FC">-->
+    <!--<div class="firstK kollection">-->
+    <!--<div class="img-card">-->
+
+    <!--</div>-->
+    <!--<div class="desc-card">-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="secondK kollection">-->
+    <!--<div class="img-card">-->
+
+    <!--</div>-->
+    <!--<div class="desc-card">-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div id="NM" class="face-item"></div>-->
+    <!--<div class="face-item">-->
+    <!--<div id="LC"></div>-->
+    <!--</div>-->
+    <!--</div>-->
 </div>
 {% endblock body %}
