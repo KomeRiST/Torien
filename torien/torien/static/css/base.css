@@ -5,202 +5,96 @@
     Оранжевый: #E46C3A (светлый)
     Серый: #DFB9A3 (серо-бежевый)
     Оранжево-розовый: #FC9964 (почти) (тёмный)
+    Золотой: ffd700
 */
 
 * {
     color: #464747;
 }
 
+body {
+    background-color: black;
+    background-image: url(/static/css/fabric-of-squares.png);
+}
+
+
+.site-name {
+    text-align: center;
+}
+
 @font-face {
     font-family: PFChampion; /* Гарнитура шрифта */
-   /* src: url(/static/fonts/PFChampionScriptPro-Bold.otf);  Путь к файлу со шрифтом */
-   src: url("/static/fonts/MADEEvolveSansEVO-Thin.otf");   Путь к файлу со шрифтом
+    src: url(/static/fonts/PFChampionScriptPro-Bold.otf);  Путь к файлу со шрифтом
+   /*src: url("/static/fonts/MADEEvolveSansEVO-Thin.otf");   Путь к файлу со шрифтом*/
 }
 
-body {
-    background-color: #f2f1f1;
-    /*background-image: url("/static/css/fabric-of-squares.jpg");*/
+
+/*Стили только для смартфонов*/
+@media screen and (max-device-width:480px){
+    @media (orientation: portrait) {
+
+    }
+    /*Далее остальные стили*/
 }
 
-/* Моник компа */
-@media (min-width: 1024px) {
-    header {
-        top: 0px;
-        z-index: 1000;
-        max-width: 950px;
-        width: 80%;
+/*Стили только для планшетов*/
+@media screen and (min-device-width:481px){
+    @media (orientation: portrait) {
+        .site-name {
+            font-size: 72pt;
+            animation: 3s sitename;
+        }
+
+    }
+    /*Далее остальные стили*/
+}
+
+/*Стили только для десктопов*/
+@media screen and (min-width:769px){
+    /*Далее остальные стили*/
+
+    body {
+        width: 100%;
+        /*max-width: 1600px;*/
+        /*border: 1px solid #ffd700;*/
+        min-height: 100vh;
         margin: auto;
-        border-radius: 0px 0px 50% 50% / 0px 0px 100% 100%;
-        border-bottom: #e46c3a solid 1px;
-        box-shadow: 0 0px 20px #e46c3a;
-        background-color: #ffffff;
     }
-
-    .body-container {
-        margin-top: -80px;
-        height: 100vh;
-        width: 100%;
-        /*background-color: red;*/
-    }
-
     .site-name {
-        font: normal small-caps bold 4em PFChampion;
-        color: #e46c3a;
-        /* text-shadow: 1px 0em 1px #464747, -1px 0em 1px #464747, 0em 1px 1px #464746, 0em -1px 1px #464747, 0em 0em 1em #464747, 0em 0em 0.9em #464747, 0em 0em 0.8em #464747, 0em 0em 0.7em #464747, 0em 0em 0.6em #000000, 0 0 0em #e46c3a; */
-        letter-spacing: 0.3em;
-        animation: 2s SM;
-        text-align: center;
+        font-family: PFChampion;
+        font-size: 128pt;
+        animation: 3s sitename;
+        line-height: 100vh;
+        color: #ffd700;
+        text-shadow: 0px 0px 10px, -1px -1px 0px white, 1px 1px 0px black;
     }
-
-    .face {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
+    .rowmaxh {
+	    height: 100vh;
+	    background-color: #80808080;
     }
-
-    .face-item {
-        align-self: center;
-        text-align: center;
-        width: 33%;
-    }
-
-    #NM {
-        animation: 1.5s NM;
-    }
-
-    #FC {
-        animation: 2s FC;
-        height: 100vh;
-        /*background-color: #DFB9A3;*/
-    }
-
-    #LC {
-        animation: 2s LC;
-        height: 100vh;
-        /*background-color: #DFB9A3;*/
-    }
-
-    .kollection, .desc-card, .img-card {
-        width: 100%;
-        height: 50%;
-    }
-
-    .firstK {
-
-    }
-    .firstK .img-card {
-        background-color: red;
-        background: center / contain no-repeat  url("/media/fotoForCollection/collection-1/1.png");
-    }
-
-    .secondK {
-        background: center / cover no-repeat url(/media/fotoForCollection/collection-2/1.png);
-    }
-    .secondK .img-card {
-        /*background-color: blue;
-        background: center / contain no-repeat  url("/media/fotoForCollection/collection-2/1.png");*/
-    }
-
-    @keyframes NM {
-      from {
-        margin-top: -5%;
-      }
-
-      to {
-        margin-top: 0;
-      }
-    }
-    @keyframes SM {
-      from {
-        letter-spacing: 0em;
-        opacity: 0;
-      }
-
-      to {
-        letter-spacing: 0.3em;
-        opacity: 1;
-      }
-    }
-    @keyframes FC {
-      from {
-        margin-right: 100%;
-        opacity: 0;
-      }
-
-      to {
-        margin-right: 0;
-        opacity: 1;
-      }
-    }
-    @keyframes LC {
-      from {
-        margin-left: 100%;
-        opacity: 0;
-      }
-
-      to {
-        margin-left: 0;
-        opacity: 1;
-      }
-    }
-}
-
-/* Плонш */
-@media (max-width: 768px) {
-    .menu-btn {
-        text-align: center;
-        width: 30px;
-        height: 0px;
-        top: 60%;
-        left: 20%;
-        background-color: rgba(0, 0, 0, 0.50);
+    .rowmaxh::before {
+        content: '';
         position: absolute;
-        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.50);
-    }
-    .menu-btn:before {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 0px;
-        top: -10px;
-        left: 0px;
-        z-index: 0;
-        background-color: rgba(0, 0, 0, 0.50);
-        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.50);
-    }
-    .menu-btn:after {
-        content: "";
-        position: absolute;
-        width: 40px;
-        height: 0px;
-        top: 10px;
-        left: 0px;
-        z-index: 0;
-        background-color: rgba(0, 0, 0, 0.50);
-        box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.50);
-    }
-    header:hover {
-        box-shadow: 0px 0px 15px 5px #64A0EF;
-        cursor: pointer;
-    }
-    header {
-        position: absolute;
-        left: 0px;
+        right: 0;
+        height: 2em;
         bottom: 0px;
-        height: 50px;
-        width: 85px;
-        border-top-right-radius: 100%;
-        height: 60px;
-        background-color: #FFFFFF;
-        box-shadow: 0px 0px 15px 5px #B7B7B7;
-    }
-    .body-container {
-        height: 100vh;
-        width: 100%;
-        background-color: gray;
-    }
-}
+        left: 0px;
+        z-index: -1;
+        background: #80808080;
+        /*transform: perspective(10px) rotatey(-3deg);*/
+	}
+    /* Анимации */
+    /*
+        sitename: появление названия сайта.
+    */
 
-/* Смартфон */
-@media (min-width: 300px) {
+    @keyframes sitename {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
 }

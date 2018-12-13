@@ -69,6 +69,7 @@
   border: none;
   position: absolute;
   pointer-events: none;
+  width: inherit;
 }
 
 .ism-button, .ism-pause-button {
