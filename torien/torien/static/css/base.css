@@ -55,16 +55,17 @@ body {
 
     body {
         width: 100%;
+        overflow: hidden;
         /*max-width: 1600px;*/
         /*border: 1px solid #ffd700;*/
         min-height: 100vh;
         margin: auto;
     }
     .site-name {
-        font-family: PFChampion;
+        font-family: BehrensKursivC;
         font-size: 128pt;
         animation: 3s sitename;
-        line-height: 100vh;
+        line-height: 90vh;
         color: #ffd700;
         text-shadow: 0px 0px 10px, -1px -1px 0px white, 1px 1px 0px black;
     }
@@ -83,6 +84,46 @@ body {
         background: #80808080;
         /*transform: perspective(10px) rotatey(-3deg);*/
 	}
+	.rowcontflex {
+	    height: 10vh;
+        justify-content: center;
+        color: gold;
+        display: flex;
+        flex-direction: row;
+        animation: 2s bottin;
+	}
+@font-face {
+    font-family: DualityRegular; /* Гарнитура шрифта */
+    src: url(/static/fonts/DualityRegular.otf);
+}
+@font-face {
+    font-family: RageItalicLET; /* Гарнитура шрифта */
+    src: url(/static/fonts/RageItalicLET.ttf);
+}
+@font-face {
+    font-family: BehrensKursivC; /* Гарнитура шрифта */
+    src: url(/static/fonts/BehrensKursivC.ttf);
+}
+	.itemflex {
+	    padding: 0.5%;
+        margin: 1%;
+	    color: gold;
+	    font-size: 24pt;
+	    font-family: BehrensKursivC;
+	}
+	.itemflex:hover {
+	    text-shadow: 0px 0px 30px gold;
+	    cursor: pointer;
+	    /*
+	    background-color: #ffd70080;
+	    border-radius: 30px;;*/
+	}
+	.colcontflex {
+	    margin-boеtom: 3em;
+        justify-content: space-around;
+	    display: flex;
+	    flex-direction: column;
+	}
     /* Анимации */
     /*
         sitename: появление названия сайта.
@@ -97,4 +138,14 @@ body {
         }
     }
 
+    @keyframes bottin {
+        from {
+            opacity: 0;
+            margin-top: 10vh;
+        }
+        to {
+            opacity: 1;
+            margin-top: 0vh;
+        }
+    }
 }
