@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: black;
+    /*background-color: black;*/
     background-image: url(/static/css/fabric-of-squares.png);
 }
 
@@ -66,7 +66,7 @@ body {
         font-size: 128pt;
         animation: 3s sitename;
         line-height: 90vh;
-        color: #ffd700;
+        color: #585858;
         text-shadow: 0px 0px 10px, -1px -1px 0px white, 1px 1px 0px black;
     }
     .rowmaxh {
@@ -87,7 +87,7 @@ body {
 	.rowcontflex {
 	    height: 10vh;
         justify-content: center;
-        color: gold;
+        color: #585858;
         display: flex;
         flex-direction: row;
         animation: 2s bottin;
@@ -107,12 +107,12 @@ body {
 	.itemflex {
 	    padding: 0.5%;
         margin: 1%;
-	    color: gold;
+	    color: #585858;
 	    font-size: 24pt;
 	    font-family: BehrensKursivC;
 	}
 	.itemflex:hover {
-	    text-shadow: 0px 0px 30px gold;
+	    text-shadow: 0px 0px 30px #585858;
 	    cursor: pointer;
 	    /*
 	    background-color: #ffd70080;
