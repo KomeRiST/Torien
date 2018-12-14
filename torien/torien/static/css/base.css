@@ -13,8 +13,10 @@
 }
 
 body {
-    /*background-color: black;*/
-    background-image: url(/static/css/fabric-of-squares.png);
+    /*background-color: black;
+    background-image: url(/static/css/fabric-of-squares.png);*/
+background-color: #141a10;
+background-image: url("https://www.transparenttextures.com/patterns/grid.png")
 }
 
 
@@ -51,6 +53,182 @@ body {
 
 /*Стили только для десктопов*/
 @media screen and (min-width:769px){
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+a {
+    text-decoration: none;
+}
+/*Just the background stuff */
+span.s1 {
+  position: absolute;
+  top: 0;
+  font-size: 15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #3C4447;
+}
+
+span.s2 {
+  font-weight: 800;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 15rem;
+  text-transform: uppercase;
+  color: #3C4447;
+}
+
+/*My hum... body.. yeah.. */
+body {
+  background-color: #353B3F;
+  font-family: "Roboto", sans-serif;
+}
+
+/* The card */
+.card, .card2 {
+    position: relative;
+    height: 100%;
+    width: 45%;
+    margin: auto;
+    background: linear-gradient(148deg, rgba(0,0,0,0) 47%, #ffffff4a 100%);
+    -webkit-box-shadow: 10px 10px 40px -20px rgb(0, 0, 0);
+    -moz-box-shadow: 10px 10px 40px -20px rgb(0, 0, 0);
+    border: 1px solid #b8bbbd;
+    border-top: none;
+    border-left: none;
+    border-radius: 10px;
+}
+.card2 {
+    background: linear-gradient(-148deg, rgba(0,0,0,0) 47%, #ffffff4a 100%);
+    border-top: none;
+    border-right: none;
+    -webkit-box-shadow: -10px 10px 40px -20px rgb(0, 0, 0);
+    box-shadow: -10px 10px 40px -20px rgb(0, 0, 0);
+    border-left: 1px solid #b8bbbd;
+}
+
+/* Image on the left side */
+.thumbnail {
+    position: relative;
+    top: -30px;
+    margin: auto;
+    height: 75%;
+    width: 90%;
+    background-color: #ffffff4a;
+    -webkit-box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.33);
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.33);
+    border-radius: 10px;
+    border: 1px solid #cccdcd;
+    overflow: hidden;
+}
+
+/*object-fit: cover; */
+/*object-position: center; */
+img.left {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* Right side of the card */
+.right {
+    margin: 1% 3%;
+}
+
+h1 {
+    padding-top: 15px;
+    font-size: 1.3rem;
+    color: #c3c4c4;
+    text-align: center;
+}
+
+.author {
+  background-color: #9ECAFF;
+  height: 30px;
+  width: 110px;
+  border-radius: 20px;
+}
+
+.author > img {
+  padding-top: 5px;
+  margin-left: 10px;
+  float: left;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+h2 {
+  padding-top: 8px;
+  margin-right: 6px;
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.separator {
+    margin-top: 15px;
+    border: 1px solid #ffffff;
+}
+
+p {
+    text-align: justify;
+    padding-top: 15px;
+    font-size: 0.95rem;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+/* DATE of release */
+h5 {
+  position: absolute;
+  left: 30px;
+  bottom: -120px;
+  font-size: 6rem;
+  color: #C3C3C3;
+}
+
+h6 {
+  position: absolute;
+  left: 30px;
+  bottom: -55px;
+  font-size: 2rem;
+  color: #C3C3C3;
+}
+
+/* Those futur buttons */
+ul {
+  margin-left: 250px;
+}
+
+li {
+  display: inline;
+  list-style: none;
+  padding-right: 40px;
+  color: #7B7B7B;
+}
+
+/* Floating action button */
+.fab {
+  position: absolute;
+  right: 50px;
+  bottom: -40px;
+  box-sizing: border-box;
+  padding-top: 18px;
+  background-color: #1875D0;
+  width: 80px;
+  height: 80px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+}
     /*Далее остальные стили*/
 
     body {
@@ -66,8 +244,8 @@ body {
         font-size: 128pt;
         animation: 3s sitename;
         line-height: 90vh;
-        color: #585858;
-        text-shadow: 0px 0px 10px, -1px -1px 0px white, 1px 1px 0px black;
+        color: #ffffff00;
+        text-shadow: 0px 0px 10px, 1px 1px 1px #ffffffb3, -1px -1px 1px #000000a3;
     }
     .rowmaxh {
 	    height: 100vh;
@@ -87,7 +265,7 @@ body {
 	.rowcontflex {
 	    height: 10vh;
         justify-content: center;
-        color: #585858;
+        color: gold; /*#585858;*/
         display: flex;
         flex-direction: row;
         animation: 2s bottin;
@@ -107,23 +285,45 @@ body {
 	.itemflex {
 	    padding: 0.5%;
         margin: 1%;
-	    color: #585858;
+	    color: #c5c5c6;
 	    font-size: 24pt;
 	    font-family: BehrensKursivC;
 	}
-	.itemflex:hover {
-	    text-shadow: 0px 0px 30px #585858;
+	.itemflex:hover, .contitem:hover {
+	    text-shadow: 0px 0px 20px #000000;
 	    cursor: pointer;
-	    /*
-	    background-color: #ffd70080;
-	    border-radius: 30px;;*/
+	}
+	.itemhead {
+	    position: relative;
+	    top: 0;
+	    font-size: 36pt;
+	    color: gold;
+	    text-align: center;
+	}
+	.itemdesc {
+
+	}
+	.contitem img {
+	    width: 100%;
+	}
+	.contitem {
+	    width: 50%;
+	    font-family: BehrensKursivC;
 	}
 	.colcontflex {
-	    margin-boеtom: 3em;
-        justify-content: space-around;
-	    display: flex;
-	    flex-direction: column;
+	    justify-content: space-between;
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
 	}
+
+	.content {
+	    display: none;
+	    height: 60vh;
+	    /*border: 1px white solid;
+	    border-radius: 15px;*/
+	}
+
     /* Анимации */
     /*
         sitename: появление названия сайта.

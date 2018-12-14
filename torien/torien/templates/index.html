@@ -4,20 +4,43 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
-<link rel="stylesheet" href="{% static 'css/my-slider.css' %}"/>
+<!--<link rel="stylesheet" href="{% static 'css/my-slider.css' %}"/>-->
 {% endblock style %}
 
 {% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="{% static 'js/ism-2.2.min.js' %}"></script>
+<script src="{% static 'js/myjs.js' %}"></script>
 {% endblock script %}
 
 {% block body %}
 <div class="colcontflex">
-    <div class="site-name">Тorien</div>
+    <div class="centr">
+        <div class="site-name">Тorien</div>
+    </div>
+    <div class="content">
+    </div>
     <div class="rowcontflex">
-        <div class="itemflex">Перейти к колекциям</div>
-        <div class="itemflex">Весь асортимент</div>
-        <div class="itemflex">User (выход)</div>
+        <div class="itemflex" date="collection">Перейти к колекциям</div>
+        <div class="itemflex" date="alltovar">Весь асортимент</div>
+        <div class="itemflex" date="account">User (выход)</div>
     </div>
 </div>
+<script>
+$(".itemflex").click(function() {
+    $.ajax({
+      url: "kollections/",
+      success: function( result ) {
+        $( ".content" ).html( result );
+      }
+    });
+  $( ".site-name" )
+    .animate({ fontSize: "72pt" }, 1500 )
+    .animate({ lineHeight: "30vh" }, { duration: 1500, queue: false })
+    .animate({ height: "30vh" }, 100 );
+
+    $(".content").addClass("rowcontflex bordercontent").css("display", "flex");
+});
+
+</script>
 {% endblock body %}

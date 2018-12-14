@@ -4,8 +4,10 @@ from django.db import models
 class BaseItem(models.Model):
     name = models.TextField()
     description = models.TextField(blank=True)
-    image_path = models.FilePathField(path="/home/images")
+    image_path = models.ImageField()
 
+    def __str__(self):
+        return self.name
 
 class Size(models.Model):
     en = models.CharField(max_length=5)
@@ -16,7 +18,7 @@ class Size(models.Model):
 
 class Color(models.Model):
     name = models.CharField(max_length=20)
-    rgb16 = models.CharField(max_length=7, min_length=7)
+    rgb16 = models.CharField(max_length=7)
     code_color = models.CharField(max_length=10, blank=True)
 
 
@@ -27,7 +29,13 @@ class Thing(models.Model):
     material = models.CharField(max_length=25)
     color = models.ManyToManyField(Color)
 
+    def __str__(self):
+        return self.mainInfo
+
 
 class Collection(models.Model):
     mainInfo = models.OneToOneField(BaseItem, on_delete=models.CASCADE, primary_key=True)
     date_start = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.mainInfo.name

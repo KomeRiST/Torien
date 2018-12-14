@@ -23,11 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="73380174-4d1c-4bcd-9502-66218f19abdb">
-        <schema name="torien" object-types="table, view, procedure, function" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="73380174-4d1c-4bcd-9502-66218f19abdb">
@@ -36,6 +32,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="73380174-4d1c-4bcd-9502-66218f19abdb" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="73380174-4d1c-4bcd-9502-66218f19abdb" dataset="torien.auth_group" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
