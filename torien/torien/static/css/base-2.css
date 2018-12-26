@@ -4,6 +4,10 @@
     transition: all 0.65s;
 }
 
+#loginshow, #usershow {
+    transition: top .6s ease, opacity .6s ease;
+}
+
 body {
     background-color: white;
 }
@@ -88,7 +92,7 @@ body {
         background-color: #E64A19;
     }
     /* стилизуем ссылки */
-    nav a, #login {
+    nav a, #login, #userpage {
         display: block;
         padding: 0 10px;
         color: #FFF;
@@ -103,9 +107,9 @@ body {
     /* скрываем выпадающие списки по умолчанию
 			 * и задаем абсолютное позиционирование */
     nav ul ul {
-        display: none;
+        opacity: 0;
+        top: -200%;
         position: absolute;
-        top: 100%;
     }
     /* отображаем выпадающий список при наведении */
     /* nav ul li:hover>ul {

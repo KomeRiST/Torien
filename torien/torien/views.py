@@ -1,36 +1,55 @@
-from django.shortcuts import render_to_response, render
-from . import models
-from django.contrib.auth import authenticate, login
+import json
+
+from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponse
+from django.shortcuts import render, render_to_response
+
+from . import models
 
 
 def login(request):
     form = AuthenticationForm(request)
     if request.method == 'POST':
-        err = 0
         username = request.POST['username']
         password = request.POST['password']
-        next = request.POST.get('next')
-        user = authenticate(username=username, password=password)
+        if request.user.is_authenticated:
+            print('logout...')
+            auth.logout(request)
+        user = auth.authenticate(username=username, password=password)
+        print('user:', user)
         if user is not None:
+            print('user: user is not None')
             if user.is_active:
-                login(request, user)
-                return render(request, next)
+                print('user: is_active')
+                auth.login(request, user)
+                err = 'ok'
+                print('message: ', err)
+                res = json.dumps({'message': err})
+                return HttpResponse(res)
+                # return render(request, 'index.html')
                 # Redirect to a success page.
             else:
                 # Return a 'disabled account' error message
-                err = 1
-                return render(request, 'error/disabledaccount.html', {'form': form, 'err': err})
+                print('user: is NOT active')
+                err = 'disabled account'
+                print('message: ', err)
+                res = json.dumps({'message': err})
+                return HttpResponse(res)
         else:
             # Return an 'invalid login' error message.
-            err = 2
-            return render(request, 'login.html', {'form': form, 'err': err})
+            err = 'invalid login'
+            print('message: ', err)
+            res = json.dumps({'message': err})
+            return HttpResponse(res)
     else:
-        return render(request, 'login.html', {'form': form})
+        err = ''
+        print('message: ', err)
+        return render(request, 'login.html', {'form': form, 'message': err})
 
 
 def index(request):
-    return render_to_response('index.html')
+    return render(request, 'index.html')
 
 
 def about(request):

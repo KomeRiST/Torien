@@ -17,10 +17,16 @@
         <li><a href="#">О нас</a></li>
         <li style="width: 3vw;"></li>
         {% if user.is_authenticated %}
-        <li><a href="admin">{{user.get_username}}</a></li>
+        <li>
+            <div id="userpage">{{user.get_username}}</div>
+            <ul id="usershow">
+                <li id="userform"></li>
+            </ul>
+        </li>
         <li><a href="#">Корзина</a></li>
         {% else %}
-        <li><div id="login">Вход</div>
+        <li>
+            <div id="login">Вход</div>
             <!-- первый уровень выпадающего списка -->
             <ul id="loginshow">
                 <li id="loginform"></li>
@@ -30,14 +36,30 @@
     </ul>
 </nav>
 <script>
-    $("#login").click(function() {
-        $( "#loginform" ).html("");
+    $("#login").click(function () {
+        $("#loginform").html("");
         $.ajax({
-          url: "login/",
-          success: function( result ) {
-            $( "#loginform" ).html( result );
-            $( "#loginshow" ).toggle();
-          }
+            url: "login/",
+            success: function (result) {
+                $("#loginform").html(result);
+                $("#loginshow").toggle(750, "linear");
+            }
+        });
+    });
+    $("#userpage").click(function () {
+        $("#userform").html("");
+        $.ajax({
+            url: "login/",
+            success: function (result) {
+                $("#userform").html(result);
+                if ($("#usershow").css("opacity") === "1") {
+                    $("#usershow").css("opacity", "0");
+                    $("#usershow").css("top", "-400%");
+                }else{
+                    $("#usershow").css("opacity", "1");
+                    $("#usershow").css("top", "100%");
+                }
+            }
         });
     });
 </script>
