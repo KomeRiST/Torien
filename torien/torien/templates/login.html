@@ -1,0 +1,12 @@
+<div class="row">
+    {% if err == 2 %}
+    Не верный логин или пароль!
+    {% elif err == 1 %}
+    Учётная запись отключена!
+    {% endif %}
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    </form>
+</div>

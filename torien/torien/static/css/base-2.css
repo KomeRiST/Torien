@@ -1,0 +1,218 @@
+/* https://www.pythonanywhere.com/user/torien/files/home/torien/torien/media/%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE%D0%B5%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4 */
+
+* {
+    transition: all 0.65s;
+}
+
+body {
+    background-color: white;
+}
+
+.spacer-50 {
+    height: 50px;
+}
+
+@media screen and (max-device-width: 480px) {}
+
+@media screen and (min-device-width: 481px) {}
+
+@media screen and (min-width: 769px) {
+    @font-face {
+        font-family: BehrensKursivC;
+        src: url(/static/fonts/BehrensKursivC.ttf);
+    }
+    @font-face {
+        font-family: Archive;
+        src: url(/static/fonts/Archive.otf);
+    }
+    form {
+        width: 300px;
+        margin: auto;
+        padding: 10px;
+    }
+    form p {
+        margin-bottom: 1rem;
+    }
+    form p label {
+        display: block;
+        font-size: 18px;
+    }
+    form p input {
+        display: block;
+        width: 100%;
+        padding: 5px;
+        margin: 3px auto;
+        border: 1px solid #E64A19;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    form input[type="submit"]:hover {
+        background-color: #1ab1182e;
+    }
+    form input[type="submit"] {
+        border-radius: 5px;
+        padding: 5px 15px;
+        margin: auto;
+        display: block;
+        border: 1px solid #1ab118;
+        background-color: white;
+    }
+    .site-name {
+        font-family: BehrensKursivC;
+        font-size: 48pt;
+        color: #ffffff;
+        /* text-shadow: 1px 1px 1px #7ccaff, -1px -1px 1px #7ccaff, -1px 1px 1px #7ccaff, 1px -1px 1px #7ccaff, 0px 0px 15px #7ccaff; */
+    }
+    /* задаем цвет фона для контейнера nav. */
+    nav {
+        position: sticky;
+        z-index: 1;
+        top: -60px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #E64A19;
+    }
+    /* убираем отступы и поля, а также list-style для "ul", 
+			 * и добавляем "position:relative" */
+    nav ul {
+        padding: 0;
+        margin: auto;
+        list-style: none;
+        position: relative;
+    }
+    /* применяем inline-block позиционирование к элементам навигации */
+    nav ul li {
+        margin: 0px -7px 0 0;
+        display: inline-block;
+        background-color: #E64A19;
+    }
+    /* стилизуем ссылки */
+    nav a, #login {
+        display: block;
+        padding: 0 10px;
+        color: #FFF;
+        font-size: 20px;
+        line-height: 60px;
+        text-decoration: none;
+    }
+    /* изменяем цвет фона при наведении курсора */
+    nav a:hover {
+        background-color: #000000;
+    }
+    /* скрываем выпадающие списки по умолчанию
+			 * и задаем абсолютное позиционирование */
+    nav ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+    }
+    /* отображаем выпадающий список при наведении */
+    /* nav ul li:hover>ul {
+        display: inherit;
+    } */
+    /* первый уровень выпадающего списка */
+    nav ul ul li {
+        min-width: 170px;
+        float: none;
+        display: list-item;
+        position: relative;
+    }
+    .overlay {
+        background: rgba(0, 0, 0, 0.33);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .row {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 150px);
+        overflow: hidden;
+        /* background: #f3b3b3; */
+        -webkit-transition: background 0.5s;
+        -moz-transition: background 0.5s;
+        transition: background 0.5s;
+    }
+    .row video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: opacity 0.5s;
+        -moz-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+    }
+    .card-img-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: fit-content;
+        height: max-content;
+        left: 0;
+        margin: auto;
+        background-color: #e64a1980;
+        padding: 1.25rem;
+        border-radius: 50%;
+    }
+    /*.video-overlay {/static/css/video-filter-dot.png*/
+    .video-overlay {
+        /* background: url(/static/css/cross-stripes.png) repeat; */
+        background-size: cover;
+        position: absolute;
+        height: calc(100vh - 150px);
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .kollections {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .kollection {
+        height: 100%;
+        width: 50%;
+        padding: 1%;
+    }
+    .kollection-title h1 {
+        font-family: Archive;
+        font-size: 5vw;
+        text-align: center;
+    }
+    .kollection-desc {
+        font-family: Archive;
+        font-size: 16pt;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /* padding: 6vw; */
+        opacity: 0;
+        margin: 6vw;
+    }
+    .kollection-desc:hover {
+        background-color: #e64a19b3;
+        color: white;
+        opacity: 1;
+    }
+    .kategories {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+    .kotegory {
+        min-width: 200px;
+        margin: 0.5%;
+        border: 1px solid;
+    }
+}

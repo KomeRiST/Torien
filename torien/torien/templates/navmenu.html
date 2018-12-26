@@ -1,0 +1,43 @@
+<nav>
+    <div style="margin: auto;"><a href="#" class="site-name">Тorien</a></div>
+    <ul>
+        <li><a href="#">Коллекции</a>
+
+            <!-- первый уровень выпадающего списка -->
+            <ul>
+                <li><a href="#">Themes</a></li>
+                <li><a href="#">Plugins</a></li>
+                <li><a href="#">Tutorials</a></li>
+            </ul>
+
+        </li>
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Галерея</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">О нас</a></li>
+        <li style="width: 3vw;"></li>
+        {% if user.is_authenticated %}
+        <li><a href="admin">{{user.get_username}}</a></li>
+        <li><a href="#">Корзина</a></li>
+        {% else %}
+        <li><div id="login">Вход</div>
+            <!-- первый уровень выпадающего списка -->
+            <ul id="loginshow">
+                <li id="loginform">Themes</li>
+            </ul>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+<script>
+    $("#login").click(function() {
+        $( "#loginform" ).html("");
+        $.ajax({
+          url: "login/",
+          success: function( result ) {
+            $( "#loginform" ).html( result );
+            $( "#loginshow" ).toggle();
+          }
+        });
+    });
+</script>
