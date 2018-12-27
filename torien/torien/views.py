@@ -48,6 +48,15 @@ def login(request):
         return render(request, 'login.html', {'form': form, 'message': err})
 
 
+def myroom(request):
+    return render(request, 'myroom.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'index.html')
+
+
 def index(request):
     return render(request, 'index.html')
 

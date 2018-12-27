@@ -1,5 +1,5 @@
 <nav>
-    <div style="margin: auto;"><a href="#" class="site-name">Тorien</a></div>
+    <div style="margin: auto;"><a href="/" class="site-name">Тorien</a></div>
     <ul>
         <li><a href="#">Коллекции</a>
 
@@ -17,12 +17,8 @@
         <li><a href="#">О нас</a></li>
         <li style="width: 3vw;"></li>
         {% if user.is_authenticated %}
-        <li>
-            <div id="userpage">{{user.get_username}}</div>
-            <ul id="usershow">
-                <li id="userform"></li>
-            </ul>
-        </li>
+        <li><a href="/myroom/">{{user.get_username}}</a></li>
+        <li><a href="/logout/">Выход</a></li>
         <li><a href="#">Корзина</a></li>
         {% else %}
         <li>

@@ -9,11 +9,26 @@
 }
 
 body {
-    background-color: white;
+    background-color: #ededed;
 }
 
 .spacer-50 {
+    height: 100px;
+    /* margin-bottom: 50px; */
+    background-color: #ededed;
+}
+
+.spacer-50::before {
+    content: " ";
+    position: relative;
+    top: -50px;
+    background: linear-gradient(#0400ff00 10%, #ededed 100%);
     height: 50px;
+    width: 100%;
+    /* z-index: 0; */
+    /* margin-top: -25px; */
+    /* border: 5px solid; */
+    display: block;
 }
 
 @media screen and (max-device-width: 480px) {}
@@ -75,7 +90,7 @@ body {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        background-color: #E64A19;
+        background-color: #9f9385;
     }
     /* убираем отступы и поля, а также list-style для "ul", 
 			 * и добавляем "position:relative" */
@@ -84,31 +99,32 @@ body {
         margin: auto;
         list-style: none;
         position: relative;
+        /* border-bottom: 1px solid #434c58; */
     }
     /* применяем inline-block позиционирование к элементам навигации */
     nav ul li {
         margin: 0px -7px 0 0;
         display: inline-block;
-        background-color: #E64A19;
+        background-color: #9f9385;
     }
     /* стилизуем ссылки */
     nav a, #login, #userpage {
         display: block;
         padding: 0 10px;
-        color: #FFF;
+        color: #f4f5f6;
         font-size: 20px;
         line-height: 60px;
         text-decoration: none;
     }
     /* изменяем цвет фона при наведении курсора */
     nav a:hover {
-        background-color: #000000;
+        background-color: #434c58;
     }
     /* скрываем выпадающие списки по умолчанию
 			 * и задаем абсолютное позиционирование */
     nav ul ul {
         opacity: 0;
-        top: -200%;
+        top: -400%;
         position: absolute;
     }
     /* отображаем выпадающий список при наведении */
@@ -136,13 +152,15 @@ body {
         width: 100%;
         height: calc(100vh - 150px);
         overflow: hidden;
-        /* background: #f3b3b3; */
+        /* margin-top: 100px; */
+        background: #ededed;
         -webkit-transition: background 0.5s;
         -moz-transition: background 0.5s;
         transition: background 0.5s;
     }
     .row video {
         position: absolute;
+        z-index: 0;
         top: 0;
         left: 0;
         -webkit-transition: opacity 0.5s;
@@ -156,11 +174,13 @@ body {
         bottom: 0;
         width: fit-content;
         height: max-content;
+        color: white;
         left: 0;
         margin: auto;
-        background-color: #e64a1980;
+        background-color: #9f93855e;
         padding: 1.25rem;
         border-radius: 50%;
+        text-align: center;
     }
     /*.video-overlay {/static/css/video-filter-dot.png*/
     .video-overlay {
@@ -184,26 +204,34 @@ body {
         width: 50%;
         padding: 1%;
     }
-    .kollection-title h1 {
+    .kollection-title h1, .kollection-title h2 {
         font-family: Archive;
-        font-size: 5vw;
+        font-size: 4vw;
         text-align: center;
+    }
+    .kollection-title h2 {
+        font-size: 2.5vw
     }
     .kollection-desc {
+        justify-content: center;
         font-family: Archive;
         font-size: 16pt;
-        position: absolute;
+        display: flex;
+        /* position: absolute; */
         text-align: center;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        height: 100%;
+        /* top: 0; */
+        /* left: 0; */
+        /* bottom: 0; */
+        /* right: 0; */
         /* padding: 6vw; */
         opacity: 0;
-        margin: 6vw;
+        /* margin: 6vw; */
     }
     .kollection-desc:hover {
-        background-color: #e64a19b3;
+        /* background-color: #434c58a3; */
+        background: rgb(67,76,88);
+        background: radial-gradient(circle, rgba(67,76,88,.85) 0%, rgba(255,255,255,0) 85%);
         color: white;
         opacity: 1;
     }
@@ -212,11 +240,23 @@ body {
         justify-content: center;
         flex-direction: row;
         flex-wrap: wrap;
-        height: 100%;
     }
     .kotegory {
         min-width: 200px;
         margin: 0.5%;
         border: 1px solid;
+    }
+    footer {
+        border-top: #8f765d 1px solid;
+        background-color: #121311;
+        box-shadow: inset 0px 5px 7px 0px black;
+        padding: .5rem;
+        margin: auto;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    footer a {
+        color: #9f9385;
     }
 }

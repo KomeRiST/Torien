@@ -25,6 +25,8 @@ urlpatterns = [
     # url('^', include('django.contrib.auth.urls')),
     path('', views.index),
                   path('login/', views.login),
+                  path('myroom/', views.myroom),
+                  path('logout/', views.logout),
                   path('kollections/', views.kollections),
                   path('kollection/<int:id>/', views.kollection),
                   path('alltovar/', views.alltovar),
