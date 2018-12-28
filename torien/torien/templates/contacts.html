@@ -1,11 +1,11 @@
 {% extends "base.html" %} {% load staticfiles %} {% block title %}Главная{% endblock title %} {% block style %}
 <link rel="stylesheet" href="{% static 'css/base-2.css' %}">
-{% endblock style %}{% block body %}
+{% endblock style %}{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{% endblock script %}{% block body %}
 <div style="display: flex; justify-content: center; flex-direction: column;" class="row">
-    {% if user.is_authenticated %}
     <div style="display: flex; justify-content: center;">
-        <h1>Личный кабинет пользователя: {{user.get_username}}</h1>
+        <h1>Контакты</h1>
     </div>
-    {% endif %}
 </div>
 {% endblock body %}

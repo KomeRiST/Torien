@@ -160,7 +160,7 @@ body {
     }
     .row video {
         position: absolute;
-        z-index: 0;
+        z-index: -1;
         top: 0;
         left: 0;
         -webkit-transition: opacity 0.5s;
@@ -181,6 +181,7 @@ body {
         padding: 1.25rem;
         border-radius: 50%;
         text-align: center;
+        z-index: 0;
     }
     /*.video-overlay {/static/css/video-filter-dot.png*/
     .video-overlay {
@@ -229,9 +230,8 @@ body {
         /* margin: 6vw; */
     }
     .kollection-desc:hover {
-        /* background-color: #434c58a3; */
-        background: rgb(67,76,88);
-        background: radial-gradient(circle, rgba(67,76,88,.85) 0%, rgba(255,255,255,0) 85%);
+        background: rgba(159, 147, 133, .75);
+        background: radial-gradient(circle, rgba(159, 147, 133, .75) 0%, rgba(255,255,255,0) 85%);
         color: white;
         opacity: 1;
     }

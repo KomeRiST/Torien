@@ -27,10 +27,11 @@ urlpatterns = [
                   path('login/', views.login),
                   path('myroom/', views.myroom),
                   path('logout/', views.logout),
+                  path('contacts/', views.contacts),
                   path('kollections/', views.kollections),
                   path('kollection/<int:id>/', views.kollection),
                   path('alltovar/', views.alltovar),
                   path('allkategories/', views.allkategories),
                   path('kategory/<int:id>/', views.kategory),
-                  path('about', views.about),
+                  path('about/', views.about),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

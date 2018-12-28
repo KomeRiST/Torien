@@ -13,8 +13,8 @@
         </li>
         <li><a href="#">Каталог</a></li>
         <li><a href="#">Галерея</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">О нас</a></li>
+        <li><a href="/contacts/">Контакты</a></li>
+        <li><a href="/about/">О нас</a></li>
         <li style="width: 3vw;"></li>
         {% if user.is_authenticated %}
         <li><a href="/myroom/">{{user.get_username}}</a></li>
@@ -35,17 +35,23 @@
     $("#login").click(function () {
         $("#loginform").html("");
         $.ajax({
-            url: "login/",
+            url: "/login/",
             success: function (result) {
                 $("#loginform").html(result);
-                $("#loginshow").toggle(750, "linear");
+                if ($("#loginshow").css("opacity") === "1") {
+                    $("#loginshow").css("opacity", "0");
+                    $("#loginshow").css("top", "-400%");
+                }else{
+                    $("#loginshow").css("opacity", "1");
+                    $("#loginshow").css("top", "100%");
+                }
             }
         });
     });
     $("#userpage").click(function () {
         $("#userform").html("");
         $.ajax({
-            url: "login/",
+            url: "/login/",
             success: function (result) {
                 $("#userform").html(result);
                 if ($("#usershow").css("opacity") === "1") {

@@ -13,9 +13,9 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        if request.user.is_authenticated:
-            print('logout...')
-            auth.logout(request)
+        # if request.user.is_authenticated:
+        #     print('logout...')
+        #     auth.logout(request)
         user = auth.authenticate(username=username, password=password)
         print('user:', user)
         if user is not None:
@@ -62,7 +62,11 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'index.html')
+    return render(request, 'about.html')
+
+
+def contacts(request):
+    return render(request, 'contacts.html')
 
 
 def kollections(request):

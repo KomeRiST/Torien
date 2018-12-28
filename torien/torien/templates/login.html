@@ -13,7 +13,7 @@
         var msg = $('#ajax_form').serialize();
         $.ajax({
             type: 'POST',
-            url: 'login/',
+            url: '/login/',
             data: msg,
             success: function (data) {
                 result = $.parseJSON(data);
