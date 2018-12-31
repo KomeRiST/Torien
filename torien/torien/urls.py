@@ -28,6 +28,7 @@ urlpatterns = [
                   path('myroom/', views.myroom),
                   path('logout/', views.logout),
                   path('contacts/', views.contacts),
+                  path('katalog/', views.katalog),
                   path('kollections/', views.kollections),
                   path('kollection/<int:id>/', views.kollection),
                   path('alltovar/', views.alltovar),

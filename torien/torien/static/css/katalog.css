@@ -1,0 +1,23 @@
+@media screen and (max-device-width: 480px) {}
+
+@media screen and (min-device-width: 481px) {}
+
+@media screen and (min-width: 769px) {
+    .leftpanel {
+        position: fixed;
+        width: 236px;
+        padding: 7px;
+        margin: 0px 25px;
+        left: 0px;
+    }
+    .leftpanel p {
+        margin-bottom: -7px;
+    }
+    .panel {
+        margin-left: 300px;
+        margin-top: 25px;
+        margin-right: 25px;
+        padding: 7px;
+        border: 1px solid black;
+    }
+}
