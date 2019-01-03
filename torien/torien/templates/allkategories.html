@@ -1,0 +1,12 @@
+{% for kategory in kats %}
+<div class="tovaritem">
+    <a href="/kategory/{{kategory.id}}">
+        <div class="thumbnail-kategory">
+            <img class="left" src="/media/{{kategory.image_path}}">
+        </div>
+        <div class="bottom">
+            <h1>{{kategory.name}}</h1>
+        </div>
+    </a>
+</div>
+{% endfor %}

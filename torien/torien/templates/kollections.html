@@ -1,0 +1,21 @@
+{% for kollect in kollects %}
+<div class="card">
+    <a href="kollection/{{kollect.pk}}/">
+        <div class="thumbnail"><img class="left" src="/media/{{kollect.mainInfo.image_path}}">
+        </div>
+        <div class="right">
+            <h1>{{kollect.mainInfo.name}}</h1>
+
+            <div class="separator"></div>
+            <p>{{kollect.mainInfo.description}}</p>
+        </div>
+    </a>
+</div>
+<!--<div class="contitem">
+    <a href="kollection/{{kollect.id}}">
+        <div class="itemhead">{{kollect.mainInfo.name}}</div>
+        <div class="itemdesc">{{kollect.mainInfo.description}}</div>
+        <img src="/media/{{kollect.mainInfo.image_path}}">
+    </a>
+</div>-->
+{% endfor %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load staticfiles %} {% block title %}Главная{% endblock title %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/base-2.css' %}">
+<link rel="stylesheet" href="{% static 'css/katalog.css' %}">
+{% endblock style %}{% block body %}
+<div class="row">
+    <div class="leftpanel">
+        <h1>Фильтр товара</h1>
+        <p><label><input type="checkbox"/> 1 описание</label></p><br>
+        <p><label><input type="checkbox"/> 2 описание</label></p><br>
+        <p><label><input type="checkbox"/> 3 описание</label></p><br>
+        <p><label><input type="checkbox"/> 4 описание</label></p><br>
+    </div>
+    <div class="panel">
+
+    </div>
+</div>
+</div>
+{% endblock body %}

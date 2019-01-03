@@ -15,7 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
+from django.conf import settings
+from django.conf.urls import url, include
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    # url('^', include('django.contrib.auth.urls')),
+    path('', views.index),
+                  path('login/', views.login),
+                  path('myroom/', views.myroom),
+                  path('logout/', views.logout),
+                  path('contacts/', views.contacts),
+                  path('katalog/', views.katalog),
+                  path('kollections/', views.kollections),
+                  path('kollection/<int:id>/', views.kollection),
+                  path('alltovar/', views.alltovar),
+                  path('allkategories/', views.allkategories),
+                  path('kategory/<int:id>/', views.kategory),
+                  path('about/', views.about),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

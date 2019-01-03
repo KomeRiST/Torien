@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Главная{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<!--<link rel="stylesheet" href="{% static 'css/my-slider.css' %}"/>-->
+{% endblock style %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'js/ism-2.2.min.js' %}"></script>
+<script src="{% static 'js/myjs.js' %}"></script>
+{% endblock script %}
+
+{% block body %}
+<div class="menu-kategory">
+    <div class="menu-kat-item menu-kat-item_selected">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_01.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+    <div class="menu-kat-item">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_02.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+    <div class="menu-kat-item">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_03.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+    <div class="menu-kat-item">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_04.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+    <div class="menu-kat-item">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_05.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+    <div class="menu-kat-item">
+        <!--<img class="left" src="/media/IconsThings/images - копия/iconthing_06.jpg" style="height: 100%;">-->
+        <p>Название категории</p>
+    </div>
+</div>
+<div class="body-kategory">
+    {% for tovar in tovary %}
+    <div class="tovaritem">
+        <div class="thumbnail">
+            <img class="left" src="/media/{{tovar.mainInfo.image_path}}">
+        </div>
+        <div class="right">
+            <h1>{{tovar.mainInfo.name}}</h1>
+
+            <div class="separator"></div>
+            <p>{{tovar.mainInfo.description}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}

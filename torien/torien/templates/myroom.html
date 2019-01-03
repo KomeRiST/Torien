@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% load staticfiles %} {% block title %}Главная{% endblock title %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/base-2.css' %}">
+{% endblock style %}{% block body %}
+<div style="display: flex; justify-content: center; flex-direction: column;" class="row">
+    {% if user.is_authenticated %}
+    <div style="display: flex; justify-content: center;">
+        <h1>Личный кабинет пользователя: {{user.get_username}}</h1>
+    </div>
+    {% endif %}
+</div>
+{% endblock body %}

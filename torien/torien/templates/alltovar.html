@@ -1,0 +1,13 @@
+{% for tovar in alltovar %}
+<div class="tovaritem">
+    <div class="thumbnail">
+        <img class="left" src="/media/{{tovar.mainInfo.image_path}}">
+    </div>
+    <div class="right">
+        <h1>{{tovar.mainInfo.name}}</h1>
+
+        <div class="separator"></div>
+        <p>{{tovar.mainInfo.description}}</p>
+    </div>
+</div>
+{% endfor %}
