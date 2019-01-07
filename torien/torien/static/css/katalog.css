@@ -3,6 +3,21 @@
 @media screen and (min-device-width: 481px) {}
 
 @media screen and (min-width: 769px) {
+    .katalogfilter {
+        display: flex;
+        justify-content: space-around;
+        height: 200px;
+    }
+    .katalogitem {
+        height: 100%;
+        width: 200px;
+    }
+    .katalogitem:hover {
+        box-shadow: 0px 0px 10px 3px blue;
+    }
+    .katalogitemdesc {
+
+    }
     .leftpanel {
         position: fixed;
         width: 236px;
@@ -10,8 +25,11 @@
         margin: 0px 25px;
         left: 0px;
     }
+    .leftpanel a {
+        text-decoration: none;
+    }
     .leftpanel p {
-        margin-bottom: -7px;
+        margin-bottom: 7px;
     }
     .panel {
         margin-left: 300px;

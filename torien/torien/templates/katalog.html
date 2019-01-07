@@ -1,14 +1,14 @@
-{% extends "base.html" %} {% load staticfiles %} {% block title %}Главная{% endblock title %} {% block style %}
+{% extends "base.html" %} {% load staticfiles %} {% block title %}Каталог{% endblock title %} {% block style %}
 <link rel="stylesheet" href="{% static 'css/base-2.css' %}">
 <link rel="stylesheet" href="{% static 'css/katalog.css' %}">
 {% endblock style %}{% block body %}
+{% include "navmenu.html" %}
 <div class="row">
     <div class="leftpanel">
         <h1>Фильтр товара</h1>
-        <p><label><input type="checkbox"/> 1 описание</label></p><br>
-        <p><label><input type="checkbox"/> 2 описание</label></p><br>
-        <p><label><input type="checkbox"/> 3 описание</label></p><br>
-        <p><label><input type="checkbox"/> 4 описание</label></p><br>
+    {% for item in katalog %}
+        <p><a href="{{item.id}}/">{{item.name}}</a></p>
+    {% endfor %}
     </div>
     <div class="panel">
 

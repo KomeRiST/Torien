@@ -1,13 +1,27 @@
-<div class="">
-    {% if message == '' %}
-    <form method="post" action="javascript:void(null);" onsubmit="call()" id="ajax_form">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Вход" id="btn">
-    </form>
-    <div id="result_form"></div>
-    {% endif %}
+<div id="notclick" style="width: 350px;
+height: 200px; margin: auto;">
+{% if message == '' %}
+<form method="post" action="javascript:void(null);" onsubmit="call()" id="ajax_form" autocomplete="off">
+    {% csrf_token %}
+    {{form.non_field_errors}}
+    <div class="formloginfield">
+        {{form.username.errors}}
+        <label for="id_username">Логин</label>
+        {{form.username}}
+    </div>
+    <div class="formloginfield">
+        {{form.password.errors}}
+        <label for="id_password">Пароль</label>
+        {{form.password}}
+    </div>
+    <input type="submit" value="Вход" id="btn">
+    <div class="button">
+        <p>Отмена</p>
+    </div>
+<div id="result_form"></div>
 </div>
+</form>
+{% endif %}
 <script type="text/javascript" language="javascript">
     function call() {
         var msg = $('#ajax_form').serialize();
@@ -27,6 +41,9 @@
                 alert('Возникла ошибка: ' + xhr.responseCode);
             }
         });
-
     }
+    $(".button").click(function(){
+        $("#loginshow").css("opacity", "0");
+        $("#loginshow").css("z-index", "-100");
+    });
 </script>

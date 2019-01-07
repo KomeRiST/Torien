@@ -49,7 +49,7 @@ def login(request):
 
 
 def myroom(request):
-    return render(request, 'myroom.html')
+    return render(request, 'myroom.html', {'selectnavmenu': 'myroom'})
 
 
 def logout(request):
@@ -58,53 +58,58 @@ def logout(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    kolls = models.Collection.objects.all()[:2]
+    katitem = models.KategoryThing.objects.all()
+    res = {"kolls": kolls, 'katalog': katitem}
+    return render(request, 'index.html', res)
 
 
 def katalog(request):
-    return render(request, 'katalog.html')
+    katitem = models.KategoryThing.objects.all()
+    res = {'katalog': katitem, 'selectnavmenu': 'katalog'}
+    return render(request, 'katalog.html', res)
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'about.html', {'selectnavmenu': 'about'})
 
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    return render(request, 'contacts.html', {'selectnavmenu': 'contacs'})
 
 
 def kollections(request):
     kollects = models.Collection.objects.all()[:2]
-    res = {'kollects': kollects}
+    res = {'kollects': kollects, 'selectnavmenu': 'kollections'}
     return render(request, 'kollections.html', res)
 
 
 def alltovar(request):
     alltovar = models.Thing.objects.all()
-    res = {'alltovar': alltovar}
+    res = {'alltovar': alltovar, 'selectnavmenu': 'alltovar'}
     return render(request, 'alltovar.html', res)
 
 
 def thing(request, id):
     thing = models.Thing.objects.get(pk=id)
-    res = {'thing': thing}
+    res = {'thing': thing, 'selectnavmenu': 'thing'}
     return render(request, 'thing.html', res)
 
 
 def kollection(request, id):
     kollect = models.Collection.objects.get(pk=id)
-    res = {'kollect': kollect}
+    res = {'kollect': kollect, 'selectnavmenu': 'kollection'}
     return render(request, 'kollection.html', res)
 
 
 def allkategories(request):
     kats = models.KategoryThing.objects.all()
-    res = {'kats': kats}
+    res = {'kats': kats, 'selectnavmenu': 'allkategories'}
     return render(request, 'allkategories.html', res)
 
 
 def kategory(request, id):
     kategory = models.KategoryThing.objects.get(pk=id)
     tovary = models.Thing.objects.filter(kategory=kategory)
-    res = {'kategory': kategory, 'tovary': tovary}
+    res = {'kategory': kategory, 'tovary': tovary, 'selectnavmenu': 'kategory'}
     return render(request, 'kategory.html', res)

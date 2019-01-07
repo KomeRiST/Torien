@@ -16,11 +16,11 @@ class BaseItem(models.Model):
 
 class Size(models.Model):
     en = models.CharField(max_length=5, verbose_name='Международный')
-    ru = models.PositiveSmallIntegerField(verbose_name='Российский')
+    # ru = models.PositiveSmallIntegerField(verbose_name='Российский')
     text = models.TextField(blank=True, verbose_name='Доп. данные')
 
     def __str__(self):
-        return '{} ({}см. - {}см.)'.format(self.en, self.ru_min, self.ru_max)
+        return '{}'.format(self.en)
 
     class Meta:
         verbose_name = 'Размер'

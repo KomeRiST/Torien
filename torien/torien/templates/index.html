@@ -1,24 +1,25 @@
 {% extends "base.html" %} {% load staticfiles %} {% block title %}Главная{% endblock title %} {% block style %}
 <link rel="stylesheet" href="{% static 'css/base-2.css' %}">
 <!--<link rel="stylesheet" href="{% static 'css/my-slider.css' %}"/>-->
+<link rel="stylesheet" href="{% static 'css/acc-2.css' %}" />
 {% endblock style %} {% block script %}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'js/ism-2.2.min.js' %}"></script>
 <script src="{% static 'js/myjs.js' %}"></script>
 {% endblock script %} {% block body %}
 <div class="row" style="position: sticky; top: 0; z-index: -1;">
     <video loop muted autoplay class="embed-responsive-item" width="100%" height="auto" allowfullscreen>
-        <source src="https://www.pythonanywhere.com/user/torien/files/home/torien/torien/media/%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%BE%D0%B5%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE.mp4"
-            type="video/mp4">
+        <source src="/media/video.mp4">
     </video>
     <div class="video-overlay"></div>
-    <div class="card-img-overlay">
+    <!-- <div class="card-img-overlay">
         <h1 class="site-name">Тorien</h1>
         <p>Женский магазин<br>модной одежды</p>
-    </div>
+    </div> -->
 </div>
-<div class="spacer-50"></div>
-<div class="row">
+{% include "navmenu.html" %}
+<div id="start" class="spacer-50"></div>
+<!-- <div class="row">
     <div class="kollection-title">
         <h1>Сезонная коллекция</h1>
         <h2>"Зима 2018-2019"</h2>
@@ -49,20 +50,36 @@
         </div>
     </div>
 </div>
+<div class="spacer-50"></div> -->
+<div class="row">
+    <div class="accordion">
+        <ul>
+            {% for item in kolls %}
+                <li tabindex="{{forloop.counter}}" style="background: url(/media/{{item.mainInfo.image_path}}) no-repeat; background-size: contain; background-position: center;">
+                    <div>
+                        <a href="#">
+                            <h2>{{item.mainInfo.description}}</h2>
+                            <p>{{item.mainInfo.name}}</p>
+                            <p>{{item.mainInfo.date_start}}</p>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 <div class="spacer-50"></div>
 <div class="row">
-    <div style="font-family: Archive; font-size: 3vw; text-align: center;">Категории</div>
-    <div class="kategories">
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
-        <div class="kotegory"></div>
+    <h1>Ассортимент</h1>
+    <div class="flex">
+        {% for item in katalog %}
+        <a href="/alltovar/" class="flexitem" style="background-image: url(/media/{{item.image_path}});">
+            <div>
+                <p class="name">{{item.name}}</p>
+                <p class="count">{{forloop.counter|add:"7"}} шт.</p>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </div>
 <script>

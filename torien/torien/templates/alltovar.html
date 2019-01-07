@@ -1,13 +1,21 @@
-{% for tovar in alltovar %}
-<div class="tovaritem">
-    <div class="thumbnail">
-        <img class="left" src="/media/{{tovar.mainInfo.image_path}}">
-    </div>
-    <div class="right">
-        <h1>{{tovar.mainInfo.name}}</h1>
-
-        <div class="separator"></div>
-        <p>{{tovar.mainInfo.description}}</p>
+{% extends "base.html" %} {% load staticfiles %} {% block title %}Контакты{% endblock title %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/base-2.css' %}">
+{% endblock style %}{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{% endblock script %}{% block body %}
+{% include "navmenu.html" %}
+<div class="spacer-50"></div>
+<div class="row">
+    <div class="flex">
+        {% for tovar in alltovar %}
+        <a href="" class="flexitem" style="background-image: url(/media/{{tovar.mainInfo.image_path}});">
+            <div>
+                <p class="name">{{tovar.mainInfo.description}}</p>
+                <p class="count">{{tovar.mainInfo.name}}</p>
+            </div>
+        </a>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
+<!-- <div class="spacer-50"></div> -->
+{% endblock body %}

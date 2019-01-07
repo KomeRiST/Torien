@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # url('^', include('django.contrib.auth.urls')),
     path('', views.index),
+                  path('', include('social_django.urls')),
                   path('login/', views.login),
                   path('myroom/', views.myroom),
                   path('logout/', views.logout),

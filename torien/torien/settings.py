@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'torien',
 ]
 
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -83,6 +85,14 @@ DATABASES = {
         'HOST': '127.0.0.1',
     }
 }
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '6806468'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'hcPo1kjhUaaZDHmYPlFh'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+    'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
