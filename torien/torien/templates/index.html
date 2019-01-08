@@ -73,7 +73,7 @@
     <h1>Ассортимент</h1>
     <div class="flex">
         {% for item in katalog %}
-        <a href="/alltovar/" class="flexitem" style="background-image: url(/media/{{item.image_path}});">
+        <a href="/alltovar/?category={{item.name}}" class="flexitem" style="background-image: url(/media/{{item.image_path}});">
             <div>
                 <p class="name">{{item.name}}</p>
                 <p class="count">{{forloop.counter|add:"7"}} шт.</p>

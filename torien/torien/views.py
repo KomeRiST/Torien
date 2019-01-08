@@ -85,7 +85,8 @@ def kollections(request):
 
 
 def alltovar(request):
-    alltovar = models.Thing.objects.all()
+    cat = request.GET.get("category", "")
+    alltovar = models.Thing.objects.filter(kategory__name=cat)
     res = {'alltovar': alltovar, 'selectnavmenu': 'alltovar'}
     return render(request, 'alltovar.html', res)
 

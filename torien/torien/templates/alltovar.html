@@ -6,6 +6,7 @@
 {% include "navmenu.html" %}
 <div class="spacer-50"></div>
 <div class="row">
+    {% if alltovar %}
     <div class="flex">
         {% for tovar in alltovar %}
         <a href="" class="flexitem" style="background-image: url(/media/{{tovar.mainInfo.image_path}});">
@@ -16,6 +17,9 @@
         </a>
         {% endfor %}
     </div>
+    {% else %}
+        <p>Ничего не найдено!</p>
+    {% endif %}
 </div>
 <!-- <div class="spacer-50"></div> -->
 {% endblock body %}
