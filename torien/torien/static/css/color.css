@@ -1,0 +1,58 @@
+:root {
+    --bgcolor: #FFFFFF;
+    --global: #000000; /* текст меню, кнопки, сноски, названия раздела */
+    --akcentMalina: #FF2A5B;
+    --akcentOrange: #FF8700;
+    --akcentBiruza: #A8FFFF;
+    --akcentPink: #FFE1FF;
+}
+* {
+    color: var(--global);
+}
+h1 {
+    background-color: var(--bgcolor);
+}
+.video-overlay {
+    background-color: var(--global);
+}
+body, .spacer-50, .row {
+    background-color: var(--bgcolor);
+}
+nav {
+    background-color: var(--bgcolor);
+    border-bottom: 1px solid var(--akcentOrange);
+}
+footer {
+    background-color: var(--global);
+    border-bottom: 1px solid var(--bgcolor);
+}
+nav * {
+    color: var(--global);
+}
+.kollection-desc {
+    background-color: #000000b3;
+    color: var(--akcentOrange);
+    border-left: 5px solid var(--akcentOrange);
+}
+.kollection-name {
+    background-color: #FF8700b3;
+    color: var(--global);
+    border-right: 5px solid var(--global);
+}
+    /* изменяем цвет фона при наведении курсора */
+nav a:hover, .selectnavmenu, .kollection-desc:hover {
+    box-shadow: inset 0px -4px 0px 0px var(--akcentOrange);
+}
+.flexitem {
+    /*background-color: white;*/
+    border: 1px solid var(--akcentOrange);
+}
+.flexitem .name {
+    background-color: var(--akcentMalina);
+}
+.flexitem .count {
+    background-color: var(--akcentPink);
+}
+.flexitem:hover {
+    box-shadow: 0px 0px 7px var(--akcentOrange);
+}

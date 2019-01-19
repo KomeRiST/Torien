@@ -8,69 +8,49 @@
 <script src="{% static 'js/myjs.js' %}"></script>
 {% endblock script %} {% block body %}
 <div class="row" style="position: sticky; top: 0; z-index: -1;">
-    <video loop muted autoplay class="embed-responsive-item" width="100%" height="auto" allowfullscreen>
+    <div class="card-img-overlay">
+        <div class="site-name">Тorien</div>
+    </div>
+    <video loop="" muted="" autoplay="" class="embed-responsive-item" width="100%" height="auto" allowfullscreen="">
         <source src="/media/video.mp4">
     </video>
-    <div class="video-overlay"></div>
-    <!-- <div class="card-img-overlay">
-        <h1 class="site-name">Тorien</h1>
-        <p>Женский магазин<br>модной одежды</p>
-    </div> -->
 </div>
 {% include "navmenu.html" %}
 <div id="start" class="spacer-50"></div>
-<!-- <div class="row">
-    <div class="kollection-title">
-        <h1>Сезонная коллекция</h1>
-        <h2>"Зима 2018-2019"</h2>
+<h1>Коллекции</h1>
+<div id="start" class="spacer-50"></div>
+{% for item in kolls %}
+<div class="row ">
+    <div class="kollection-name">
+        {{item.mainInfo.name}}
+        <div class="kollection-desc">{{item.mainInfo.description}}</div>
     </div>
-    <div style="height: calc(100% - 10vw);">
-        <div style="height: 100%; background: url(/media/fotoForCollection/collection-1/1.png) no-repeat; background-size: contain; background-position: center;">
-            <div class="kollection-desc">
-                <p style="width: 70%; margin: auto;">
-                    Описание коллекции Описание коллекции Описание коллекции Описание коллекции Описание коллекции
-                    Описание коллекции</p>
-            </div>
-        </div>
+    <div class="kollection"
+         style="background-image: url(/media/{{item.mainInfo.image_path}});">
     </div>
 </div>
 <div class="spacer-50"></div>
-<div class="row">
-    <div class="kollection-title">
-        <h1>Тематическая коллекции</h1>
-        <h2>"Сказка"</h2>
-    </div>
-    <div style="height: calc(100% - 10vw);">
-        <div style="height: 100%; background: url(/media/fotoForCollection/collection-2/1.png) no-repeat; background-size: contain; background-position: center;">
-            <div class="kollection-desc">
-                <p style="width: 70%; margin: auto;">
-                    Описание коллекции Описание коллекции Описание коллекции Описание коллекции Описание коллекции
-                    Описание коллекции</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="spacer-50"></div> -->
-<div class="row">
+{% endfor %}
+<!--<div class="row">
     <div class="accordion">
         <ul>
             {% for item in kolls %}
-                <li tabindex="{{forloop.counter}}" style="background: url(/media/{{item.mainInfo.image_path}}) no-repeat; background-size: contain; background-position: center;">
-                    <div>
-                        <a href="#">
-                            <h2>{{item.mainInfo.description}}</h2>
-                            <p>{{item.mainInfo.name}}</p>
-                            <p>{{item.mainInfo.date_start}}</p>
-                        </a>
-                    </div>
-                </li>
+            <li tabindex="{{forloop.counter}}" style="background: url(/media/{{item.mainInfo.image_path}}) no-repeat; background-size: contain; background-position: center;">
+                <div>
+                    <a href="#">
+                        <h2>{{item.mainInfo.description}}</h2>
+                        <p>{{item.mainInfo.name}}</p>
+                        <p>{{item.mainInfo.date_start}}</p>
+                    </a>
+                </div>
+            </li>
             {% endfor %}
         </ul>
     </div>
-</div>
+</div>-->
 <div class="spacer-50"></div>
+<h1>Ассортимент</h1>
 <div class="row">
-    <h1>Ассортимент</h1>
     <div class="flex">
         {% for item in katalog %}
         <a href="/alltovar/?category={{item.name}}" class="flexitem" style="background-image: url(/media/{{item.image_path}});">

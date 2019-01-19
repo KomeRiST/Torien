@@ -38,14 +38,14 @@ html {
 }
 
 body {
-    background-color: #ededed;
-    /* background-color: black; */
+    /*background-color: #ededed;
+     background-color: black; */
 }
 
 .spacer-50 {
-    height: 100px;
-    /* margin-bottom: 50px; */
-    background-color: #ededed;
+    height: 50px;
+    /* margin-bottom: 50px; 
+    background-color: #ededed;*/
 }
 
 .spacer-50::before {
@@ -115,27 +115,29 @@ body {
     }
     .site-name {
         /* font-family: BehrensKursivC; */
+        text-align: center;
+        margin: 25%;
         font-size: 48pt;
         color: #ffffff;
-        /* text-shadow: 1px 1px 1px #7ccaff, -1px -1px 1px #7ccaff, -1px 1px 1px #7ccaff, 1px -1px 1px #7ccaff, 0px 0px 15px #7ccaff; */
     }
-    /* задаем цвет фона для контейнера nav. */
+    /* задаем цвет фона для контейнера nav. 
     .navbackground {
         border-bottom: 1px solid #3d5874;
         background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #0d2f52bf 20%, #0d2f52bf 80%, rgba(255, 255, 255, 0) 100%),                       linear-gradient(#0b305c40 0%, #0b305c00 20%),                       linear-gradient(0deg, #0b305c26 0%, rgba(255,255,255,0) 50%);
-    }
+    }*/
     nav {
-        position: sticky;
+        position: fixed;
         z-index: 10;
-        top: -60px;
-        margin-top: -80px;
+        top: 0;
+        left: 0;
+        right: 0;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        /* box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.75); */
-        /* border-bottom: 1px solid #393939; */
+        /* box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.75);
+        /* border-bottom: 1px solid #393939; 
         border-top: 1px solid #00000080;
-        background-color: #9f9385;
+        background-color: #9f9385;*/
     }
     /* убираем отступы и поля, а также list-style для "ul", 
 			 * и добавляем "position:relative" */
@@ -144,8 +146,8 @@ body {
         margin: auto;
         list-style: none;
         position: relative;
-        box-shadow: 0px 15px 15px -12px rgba(13, 47, 82, 0.75);
-        /* border-bottom: 1px solid #363636; */
+        /* box-shadow: 0px 15px 15px -12px rgba(13, 47, 82, 0.75);
+        border-bottom: 1px solid #363636; */
         /* border-bottom: 1px solid #ededed; */
     }
     /* применяем inline-block позиционирование к элементам навигации */
@@ -158,17 +160,9 @@ body {
     nav a, #login, #userpage {
         display: block;
         padding: 0 10px;
-        color: #f4f5f6;
         font-size: 20px;
         line-height: 60px;
         text-decoration: none;
-    }
-    /* изменяем цвет фона при наведении курсора */
-    nav a:hover, .selectnavmenu {
-        background-color: #ededed;
-        color: #121311;
-        box-shadow: inset 20px 0px 20px -15px #ededed, inset -20px 0px 20px -15px #ededed, inset 0px -20px 25px -20px #3e5974, 0px 30px 15px -12px #ededed;
-        /* border-bottom: 1px solid #3c5773; */
     }
     /* скрываем выпадающие списки по умолчанию
 			 * и задаем абсолютное позиционирование */
@@ -204,16 +198,14 @@ body {
         height: 80vh;
         overflow: hidden;
         /* margin-top: 100px; */
-        background: #ededed;
+        /*background: #ededed;*/
         -webkit-transition: background 0.5s;
         -moz-transition: background 0.5s;
         transition: background 0.5s;
     }
-    .row > h1 {
-        color: #3e5974;
-        margin: 15px;
+    h1 {
         padding: 7px;
-        font-size: 300%;
+        font-size: 200%;
         font-family: inherit; 
     }
     .row:nth-of-type(1) {
@@ -232,18 +224,11 @@ body {
     .card-img-overlay {
         position: absolute;
         top: 0;
-        right: 0;
         bottom: 0;
-        width: fit-content;
-        height: max-content;
-        color: white;
         left: 0;
-        margin: auto;
-        background-color: #9f93855e;
-        padding: 1.25rem;
-        border-radius: 50%;
-        text-align: center;
+        right: 0;
         z-index: 0;
+        background-color: #00000073;
     }
     /*.video-overlay {/static/css/video-filter-dot.png*/
     .video-overlay {
@@ -256,8 +241,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: #ededed;
-        opacity: 0;
+        opacity: 0.5;
     }
     .kollections {
         height: 100%;
@@ -265,39 +249,31 @@ body {
         justify-content: space-between;
     }
     .kollection {
-        height: 100%;
-        width: 50%;
-        padding: 1%;
+        height: inherit;
+        margin: 1%;
+        background-size: contain;
+        background-position: left;
+        background-repeat: no-repeat;
     }
-    .kollection-title h1, .kollection-title h2 {
-        /* font-family: Archive; */
-        font-size: 4vw;
+    .kollection-name {
+        position: absolute;
+        bottom: 0;
+        top: 50%;
+        padding: 2%;
+        right: 0;
+        left: 50%;
+        font-size: 200%;
         text-align: center;
-    }
-    .kollection-title h2 {
-        font-size: 2.5vw
     }
     .kollection-desc {
-        justify-content: center;
-        /* font-family: Archive; */
-        font-size: 16pt;
-        display: flex;
-        /* position: absolute; */
+        padding: 3%;
+        font-size: 100%;
+        position: absolute;
         text-align: center;
-        height: 100%;
-        /* top: 0; */
-        /* left: 0; */
-        /* bottom: 0; */
-        /* right: 0; */
-        /* padding: 6vw; */
-        opacity: 0;
-        /* margin: 6vw; */
-    }
-    .kollection-desc:hover {
-        /* background: rgba(159, 147, 133, .75); */
-        background: linear-gradient(90deg, rgba(255,255,255,0) 10%, rgba(77, 157, 235, 0.8) 30%, rgba(77, 157, 235, 0.8) 70%, rgba(255,255,255,0) 90%);
-        color: white;
-        opacity: 1;
+        right: 0;
+        bottom: 0;
+        top: 50%;
+        left: 15%;
     }
     .kategories {
         display: flex;
@@ -312,7 +288,7 @@ body {
     }
     footer {
         border-top: rgb(62, 89, 116) 1px solid;
-        background-color: #0d2f52;
+        /*background-color: #0d2f52;*/
         box-shadow: inset 0px 7px 10px -5px black;
         padding: .5rem;
         margin: auto;
@@ -373,6 +349,7 @@ body {
     }
     .flex {
         display: flex;
+        height: inherit;
         justify-content: space-evenly;
     }
     .flexitem {
@@ -381,11 +358,6 @@ body {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-color: white;
-        border: 1px solid #798b9c;
-    }
-    .flexitem:hover {
-        box-shadow: 0px 0px 7px #3e5974;
     }
     .flexitem > div {
         position: relative;
@@ -400,15 +372,15 @@ body {
         font-size: 1.25rem;
         left: 0;
         right: 0;
-        background-color: #3e5974;
-        color: white;
+        /*background-color: #3e5974;
+        color: white;*/
         margin: -10px 5px;
     }
     .flexitem .count {
         padding: 7px;
         top: 5px;
-        background-color: #1d3d5f;
-        color: white;
+        /*background-color: #1d3d5f;
+        color: white;*/
         position: absolute;
         text-align: center;
         right: -20px;
