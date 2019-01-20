@@ -1,58 +1,84 @@
-:root {
-    --bgcolor: #FFFFFF;
-    --global: #000000; /* текст меню, кнопки, сноски, названия раздела */
+п»ї:root {
+    --bgcolor: #efefef;
+    --global: #000000; /* пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
     --akcentMalina: #FF2A5B;
     --akcentOrange: #FF8700;
     --akcentBiruza: #A8FFFF;
     --akcentPink: #FFE1FF;
+    --bgcolorT: #efefefbd;
+    --globalT: #000000bd;
+    --akcentMalinaT: #FF2A5Bbd;
+    --akcentOrangeT: #FF8700bd;
+    --akcentBiruzaT: #A8FFFFbd;
+    --akcentPinkT: #FFE1FFbd;
 }
+
+.parallax__layer--back, .parallax__layer--deep, .group3 .parallax__layer--base {
+    background-color: var(--bgcolor);
+}
+
 * {
     color: var(--global);
 }
-h1 {
-    background-color: var(--bgcolor);
+
+.title {
+    background-color: var(--globalT);
+    color: var(--bgcolor);
+    border: 3px solid var(--global);
+    border-bottom: 3px solid var(--akcentMalina);
 }
+
 .video-overlay {
     background-color: var(--global);
 }
-body, .spacer-50, .row {
+
+body, .spacer-25, .spacer-50, .row {
     background-color: var(--bgcolor);
 }
+
 nav {
-    background-color: var(--bgcolor);
-    border-bottom: 1px solid var(--akcentOrange);
+    background-color: #000000e0;
+    border-bottom: 3px solid var(--global);
 }
-footer {
-    background-color: var(--global);
-    border-bottom: 1px solid var(--bgcolor);
-}
-nav * {
-    color: var(--global);
-}
+
+    nav * {
+        color: var(--bgcolor);
+    }
+
+    nav a:hover, .selectnavmenu, .kollection-desc:hover {
+        /* border-bottom: 3px solid; */
+        box-shadow: 0px 3px 0px 0px var(--akcentMalina);
+    }
+
 .kollection-desc {
-    background-color: #000000b3;
+    /* background-color: #000000; */
     color: var(--akcentOrange);
-    border-left: 5px solid var(--akcentOrange);
 }
+
 .kollection-name {
-    background-color: #FF8700b3;
-    color: var(--global);
-    border-right: 5px solid var(--global);
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ff8700+100&0+0,1+100 */ /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ff8700',GradientType=0 );*/ /* IE6-8 */
+    color: var(--bgcolor);
 }
-    /* изменяем цвет фона при наведении курсора */
-nav a:hover, .selectnavmenu, .kollection-desc:hover {
-    box-shadow: inset 0px -4px 0px 0px var(--akcentOrange);
-}
+
 .flexitem {
     /*background-color: white;*/
     border: 1px solid var(--akcentOrange);
 }
-.flexitem .name {
-    background-color: var(--akcentMalina);
-}
-.flexitem .count {
-    background-color: var(--akcentPink);
-}
-.flexitem:hover {
-    box-shadow: 0px 0px 7px var(--akcentOrange);
+
+    .flexitem .name {
+        background-color: var(--akcentMalina);
+    }
+
+    .flexitem .count {
+        background-color: var(--akcentPink);
+    }
+
+    .flexitem:hover {
+        box-shadow: 0px 0px 7px var(--akcentOrange);
+    }
+
+footer {
+    background-color: var(--global);
+    border-bottom: 1px solid var(--bgcolor);
 }

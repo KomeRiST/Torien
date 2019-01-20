@@ -52,9 +52,22 @@ class KategoryThing(models.Model):
         verbose_name_plural = 'Категории вещей'
 
 
+class Collection(models.Model):
+    mainInfo = models.OneToOneField(BaseItem, on_delete=models.CASCADE, primary_key=True, verbose_name='Инфа')
+    date_start = models.DateField(auto_now=True, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.mainInfo.name
+
+    class Meta:
+        verbose_name = 'Коллекция'
+        verbose_name_plural = 'Коллекции'
+
+
 class Thing(models.Model):
     mainInfo = models.OneToOneField(BaseItem, on_delete=models.CASCADE, primary_key=True, verbose_name='Инфа')
     kategory = models.ForeignKey(KategoryThing, on_delete=models.CASCADE, verbose_name='Категория')
+    collection = models.ForeignKey(Collection, blank=True, on_delete=models.CASCADE, verbose_name='Из коллекции')
     material = models.CharField(max_length=25, verbose_name='Материал')
     color = models.ManyToManyField(Color, verbose_name='Цвет')
     size = models.ManyToManyField(Size, verbose_name='Размер')
@@ -66,15 +79,3 @@ class Thing(models.Model):
     class Meta:
         verbose_name = 'Вещь'
         verbose_name_plural = 'Вещи'
-
-
-class Collection(models.Model):
-    mainInfo = models.OneToOneField(BaseItem, on_delete=models.CASCADE, primary_key=True, verbose_name='Инфа')
-    date_start = models.DateField(auto_now=True, verbose_name='Дата публикации')
-
-    def __str__(self):
-        return self.mainInfo.name
-
-    class Meta:
-        verbose_name = 'Коллекция'
-        verbose_name_plural = 'Коллекции'

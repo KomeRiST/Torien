@@ -36,4 +36,5 @@ urlpatterns = [
                   path('allkategories/', views.allkategories),
                   path('kategory/<int:id>/', views.kategory),
                   path('about/', views.about),
+                  path('parallax/', views.parallax),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

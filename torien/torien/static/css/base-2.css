@@ -7,9 +7,10 @@
 
 input:-webkit-autofill {
     background-color: transparent !important;
-    background-image:none !important;
+    background-image: none !important;
     color: white !important;
 }
+
 #loginshow, #usershow {
     transition: top .6s ease, opacity .6s ease;
     color: white;
@@ -44,36 +45,83 @@ body {
 
 .spacer-50 {
     height: 50px;
-    /* margin-bottom: 50px; 
-    background-color: #ededed;*/
 }
 
-.spacer-50::before {
-    content: " ";
-    position: relative;
-    top: -50px;
-    /* background: linear-gradient(#0400ff00 10%, #ededed 100%); */
-    height: 50px;
-    width: 100%;
-    /* z-index: 0; */
-    /* margin-top: -25px; */
-    /* border: 5px solid; */
-    display: block;
+.spacer-25 {
+    height: 25px;
 }
 
-@media screen and (max-device-width: 480px) {}
+.mytitle {
+    /* Чтобы спрятать часть линий, которые 
+    ** будут вылазить за пределы блока */
+    overflow: hidden;
+    /* Выравнивание заголовка по центру, 
+    ** можно использовать left, right */
+    text-align: center;
+    /* Тут можно добавить другие стили для заголовка */
+    font-size: 30px;
+}
 
-@media screen and (min-device-width: 481px) {}
+    .mytitle span {
+        /* Стили тега обертки для заголовков 
+    ** в несколько строк */
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .mytitle:before,
+    .mytitle:after {
+        /* Обязательно указываем пустое свойство content, 
+    ** иначе псевдоэлементы не появятся на сайте */
+        content: "";
+        /* Указываем что наши линии будут строчно-блочные и 
+    ** выравнивание по высоте - по центру */
+        display: inline-block;
+        vertical-align: middle;
+        /* Задаем ширину 100% и выбираем высоту линии, 
+    ** в нашем примере она равна 4 пикселям */
+        width: 100%;
+        height: 4px;
+        /* Добавляем цвет для линии */
+        background-color: #000000;
+        /* Добавляем пседоэлемантам возможность изменить 
+    ** позицию линии, для создания отступов от текста */
+        position: relative;
+    }
+
+    .mytitle:before {
+        /* Смещаем левую линию на 100% влево, чтобы линия 
+    ** встала рядом с текстом слева */
+        margin-left: -100%;
+        /* Указываем в пикселях отступ линии от текста заголовка */
+        left: -14px;
+    }
+
+    .mytitle:after {
+        /* Смещаем правую линию на 100% вправо, чтобы 
+    ** линия встала рядом с текстом справа */
+        margin-right: -100%;
+        /* Указываем в пикселях отступ линии от текста заголовка */
+        right: -14px;
+    }
+
+@media screen and (max-device-width: 480px) {
+}
+
+@media screen and (min-device-width: 481px) {
+}
 
 @media screen and (min-width: 769px) {
     @font-face {
         /* font-family: BehrensKursivC; */
         src: url(/static/fonts/BehrensKursivC.ttf);
     }
+
     @font-face {
         /* font-family: Archive; */
         src: url(/static/fonts/Archive.otf);
     }
+
     form {
         /* width: 300px; */
         margin: auto;
@@ -84,35 +132,41 @@ body {
         /* justify-content: center; */
         box-shadow: 0 0 10px 5px #26385a;
     }
-    form p {
-        margin-bottom: 1rem;
-    }
-    form p label {
-        display: block;
-        font-size: 18px;
-    }
-    form p input {
-        display: block;
-        width: 100%;
-        padding: 5px;
-        margin: 3px auto;
-        border: 1px solid #E64A19;
-        border-radius: 10px;
-        box-sizing: border-box;
-    }
-    form input[type="submit"]:hover {
-        background-color: #7b8ea4;
-        color: white;
-        cursor: pointer;
-    }
-    form input[type="submit"] {
-        border-radius: 5px;
-        padding: 5px 15px;
-        margin: auto;
-        display: block;
-        border: 1px solid #0a2848;
-        background-color: #dbe4ea;
-    }
+
+        form p {
+            margin-bottom: 1rem;
+        }
+
+            form p label {
+                display: block;
+                font-size: 18px;
+            }
+
+            form p input {
+                display: block;
+                width: 100%;
+                padding: 5px;
+                margin: 3px auto;
+                border: 1px solid #E64A19;
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+
+        form input[type="submit"]:hover {
+            background-color: #7b8ea4;
+            color: white;
+            cursor: pointer;
+        }
+
+        form input[type="submit"] {
+            border-radius: 5px;
+            padding: 5px 15px;
+            margin: auto;
+            display: block;
+            border: 1px solid #0a2848;
+            background-color: #dbe4ea;
+        }
+
     .site-name {
         /* font-family: BehrensKursivC; */
         text-align: center;
@@ -126,62 +180,60 @@ body {
         background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #0d2f52bf 20%, #0d2f52bf 80%, rgba(255, 255, 255, 0) 100%),                       linear-gradient(#0b305c40 0%, #0b305c00 20%),                       linear-gradient(0deg, #0b305c26 0%, rgba(255,255,255,0) 50%);
     }*/
     nav {
-        position: fixed;
+        position: sticky;
         z-index: 10;
         top: 0;
-        left: 0;
-        right: 0;
         display: flex;
-        justify-content: center;
         flex-direction: column;
         /* box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.75);
         /* border-bottom: 1px solid #393939; 
         border-top: 1px solid #00000080;
         background-color: #9f9385;*/
     }
-    /* убираем отступы и поля, а также list-style для "ul", 
+        /* убираем отступы и поля, а также list-style для "ul", 
 			 * и добавляем "position:relative" */
-    nav ul {
-        padding: 0;
-        margin: auto;
-        list-style: none;
-        position: relative;
-        /* box-shadow: 0px 15px 15px -12px rgba(13, 47, 82, 0.75);
+        nav ul {
+            padding: 0;
+            margin: auto;
+            list-style: none;
+            position: relative;
+            /* box-shadow: 0px 15px 15px -12px rgba(13, 47, 82, 0.75);
         border-bottom: 1px solid #363636; */
-        /* border-bottom: 1px solid #ededed; */
-    }
-    /* применяем inline-block позиционирование к элементам навигации */
-    nav ul li {
-        margin: 0px -4px 0 0;
-        display: inline-block;
-        /* background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 20%); */
-    }
-    /* стилизуем ссылки */
-    nav a, #login, #userpage {
-        display: block;
-        padding: 0 10px;
-        font-size: 20px;
-        line-height: 60px;
-        text-decoration: none;
-    }
-    /* скрываем выпадающие списки по умолчанию
+            /* border-bottom: 1px solid #ededed; */
+        }
+            /* применяем inline-block позиционирование к элементам навигации */
+            nav ul li {
+                margin: 0px -4px 0 0;
+                display: inline-block;
+                /* background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0) 20%); */
+            }
+        /* стилизуем ссылки */
+        nav a, #login, #userpage {
+            display: block;
+            padding: 0 10px;
+            font-size: 20px;
+            line-height: 60px;
+            text-decoration: none;
+        }
+        /* скрываем выпадающие списки по умолчанию
 			 * и задаем абсолютное позиционирование */
-    nav ul ul {
-        opacity: 0;
-        top: -400%;
-        position: absolute;
-    }
-    /* отображаем выпадающий список при наведении */
-    /* nav ul li:hover>ul {
+        nav ul ul {
+            opacity: 0;
+            top: -400%;
+            position: absolute;
+        }
+            /* отображаем выпадающий список при наведении */
+            /* nav ul li:hover>ul {
         display: inherit;
     } */
-    /* первый уровень выпадающего списка */
-    nav ul ul li {
-        min-width: 170px;
-        float: none;
-        display: list-item;
-        position: relative;
-    }
+            /* первый уровень выпадающего списка */
+            nav ul ul li {
+                min-width: 170px;
+                float: none;
+                display: list-item;
+                position: relative;
+            }
+
     .overlay {
         background: rgba(0, 0, 0, 0.33);
         position: absolute;
@@ -191,6 +243,7 @@ body {
         height: 100%;
         z-index: 0;
     }
+
     .row {
         position: relative;
         padding: 10px 0px;
@@ -203,15 +256,18 @@ body {
         -moz-transition: background 0.5s;
         transition: background 0.5s;
     }
+
     h1 {
         padding: 7px;
         font-size: 200%;
-        font-family: inherit; 
+        font-family: inherit;
     }
+
     .row:nth-of-type(1) {
         height: 100vh;
         /* background-color: black; */
     }
+
     .row video {
         position: absolute;
         z-index: -1;
@@ -221,6 +277,7 @@ body {
         -moz-transition: opacity 0.5s;
         transition: opacity 0.5s;
     }
+
     .card-img-overlay {
         position: absolute;
         top: 0;
@@ -229,10 +286,10 @@ body {
         right: 0;
         z-index: 0;
         background-color: #00000073;
+        background: url(/static/css/fabric-of-squares.png) repeat;
     }
     /*.video-overlay {/static/css/video-filter-dot.png*/
     .video-overlay {
-        /* background: url(/static/css/cross-stripes.png) repeat; */
         background-size: cover;
         position: absolute;
         height: 100%;
@@ -243,49 +300,52 @@ body {
         right: 0;
         opacity: 0.5;
     }
+
     .kollections {
         height: 100%;
         display: flex;
         justify-content: space-between;
     }
+
     .kollection {
         height: inherit;
-        margin: 1%;
-        background-size: contain;
-        background-position: left;
+    }
+
+    .kollection-img {
+        height: 100%;
+        background-size: cover;
+        background-position: center;
         background-repeat: no-repeat;
     }
+
     .kollection-name {
-        position: absolute;
-        bottom: 0;
-        top: 50%;
+        margin: auto;
         padding: 2%;
-        right: 0;
-        left: 50%;
-        font-size: 200%;
+        border-radius: 7px 7px 0px 0px;
         text-align: center;
     }
+
     .kollection-desc {
-        padding: 3%;
-        font-size: 100%;
-        position: absolute;
+        padding: 2%;
+        font-size: 150%;
         text-align: center;
-        right: 0;
-        bottom: 0;
-        top: 50%;
-        left: 15%;
+        margin: auto;
+        border-radius: 7px 0px 7px 7px;
     }
+
     .kategories {
         display: flex;
         justify-content: center;
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     .kotegory {
         min-width: 200px;
         margin: 0.5%;
         border: 1px solid;
     }
+
     footer {
         border-top: rgb(62, 89, 116) 1px solid;
         /*background-color: #0d2f52;*/
@@ -296,9 +356,11 @@ body {
         display: flex;
         justify-content: space-between;
     }
-    footer a {
-        color: #ededed;
-    }
+
+        footer a {
+            color: #ededed;
+        }
+
     .formloginfield {
         margin: 15px;
         border: 0px solid #7b8ea4;
@@ -310,48 +372,54 @@ body {
         display: flex;
         justify-content: space-between;
     }
-    .formloginfield label, .formloginfield input {
-        border: none;
-        /* flex: 1; */
-        width: 60px;
-        /* border-radius: 0px; */
-        padding: 7px;
-        background-color: #09254500;
-        color: white;
-        font-size: 18px;
-        /* font-weight: 100; */
-    }
-    .formloginfield label {
-        /* width: 30%; */
-        border-right: none;
-        flex: 1;
-        /* padding-right: 0px; */
-        /* background-color: #7b8ea4; */
-    }
-    .formloginfield label::after {
-        content: "";
-        flex: 1;
-        color: #1d3d5f;
-        /* width: 30px; */
-        margin: 0px -20px 0px 15px;
-        border-radius: 10px;
-        padding: 10px 15px 10px 15px;
-        border-left: 3px solid;
-        /* border-right: none; */
-        background-color: transparent;
-    }
-    .formloginfield input {
-        flex: 2;
-        /* border-left: none; */
-        margin-left: -15px;
-        /* padding-left: 10px; */
-        /* border-left: 15px solid #7b8ea400; */
-    }
+
+        .formloginfield label, .formloginfield input {
+            border: none;
+            /* flex: 1; */
+            width: 60px;
+            /* border-radius: 0px; */
+            padding: 7px;
+            background-color: #09254500;
+            color: white;
+            font-size: 18px;
+            /* font-weight: 100; */
+        }
+
+        .formloginfield label {
+            /* width: 30%; */
+            border-right: none;
+            flex: 1;
+            /* padding-right: 0px; */
+            /* background-color: #7b8ea4; */
+        }
+
+            .formloginfield label::after {
+                content: "";
+                flex: 1;
+                color: #1d3d5f;
+                /* width: 30px; */
+                margin: 0px -20px 0px 15px;
+                border-radius: 10px;
+                padding: 10px 15px 10px 15px;
+                border-left: 3px solid;
+                /* border-right: none; */
+                background-color: transparent;
+            }
+
+        .formloginfield input {
+            flex: 2;
+            /* border-left: none; */
+            margin-left: -15px;
+            /* padding-left: 10px; */
+            /* border-left: 15px solid #7b8ea400; */
+        }
+
     .flex {
         display: flex;
-        height: inherit;
+        justify-items: center;
         justify-content: space-evenly;
     }
+
     .flexitem {
         height: 200px;
         width: 150px;
@@ -359,31 +427,34 @@ body {
         background-position: center;
         background-repeat: no-repeat;
     }
-    .flexitem > div {
-        position: relative;
-        height: 100%;
-        width: 100%;
-    }
-    .flexitem .name {
-        bottom: 0;
-        position: absolute;
-        text-align: center;
-        padding: 7px;
-        font-size: 1.25rem;
-        left: 0;
-        right: 0;
-        /*background-color: #3e5974;
+
+        .flexitem > div {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .flexitem .name {
+            bottom: 0;
+            position: absolute;
+            text-align: center;
+            padding: 7px;
+            font-size: 1.25rem;
+            left: 0;
+            right: 0;
+            /*background-color: #3e5974;
         color: white;*/
-        margin: -10px 5px;
-    }
-    .flexitem .count {
-        padding: 7px;
-        top: 5px;
-        /*background-color: #1d3d5f;
+            margin: -10px 5px;
+        }
+
+        .flexitem .count {
+            padding: 7px;
+            top: 5px;
+            /*background-color: #1d3d5f;
         color: white;*/
-        position: absolute;
-        text-align: center;
-        right: -20px;
-        /* border: 1px solid #ededed; */
-    }
+            position: absolute;
+            text-align: center;
+            right: -20px;
+            /* border: 1px solid #ededed; */
+        }
 }

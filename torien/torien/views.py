@@ -7,6 +7,11 @@ from django.shortcuts import render, render_to_response
 
 from . import models
 
+def parallax(request):
+    kolls = models.Collection.objects.all()[:2]
+    katitem = models.KategoryThing.objects.all()
+    res = {"kolls": kolls, 'katalog': katitem}
+    return render(request, "parallax.html", res)
 
 def login(request):
     form = AuthenticationForm(request)

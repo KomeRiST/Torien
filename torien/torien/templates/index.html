@@ -8,48 +8,36 @@
 <script src="{% static 'js/myjs.js' %}"></script>
 {% endblock script %} {% block body %}
 <div class="row" style="position: sticky; top: 0; z-index: -1;">
-    <div class="card-img-overlay">
+    <!--<div class="card-img-overlay">
         <div class="site-name">Тorien</div>
-    </div>
+    </div>-->
     <video loop="" muted="" autoplay="" class="embed-responsive-item" width="100%" height="auto" allowfullscreen="">
         <source src="/media/video.mp4">
     </video>
 </div>
 {% include "navmenu.html" %}
 <div id="start" class="spacer-50"></div>
-<h1>Коллекции</h1>
-<div id="start" class="spacer-50"></div>
-{% for item in kolls %}
-<div class="row ">
-    <div class="kollection-name">
-        {{item.mainInfo.name}}
-        <div class="kollection-desc">{{item.mainInfo.description}}</div>
-    </div>
-    <div class="kollection"
-         style="background-image: url(/media/{{item.mainInfo.image_path}});">
+<div id="start" class="spacer-25"></div>
+<div class="title">
+    <span>Коллекции</span>
+</div>
+<div id="start" class="spacer-25"></div>
+<div class="row">
+    <div class="kollections">
+        {% for item in kolls %}
+        <div class="kollection">
+            <div class="kollection-img" style="background-image: url(/media/{{item.mainInfo.image_path}});"></div>
+            <div class="kollection-name">{{item.mainInfo.name}}</div>
+            <div class="kollection-desc">{{item.mainInfo.description}}</div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 <div class="spacer-50"></div>
-{% endfor %}
-<!--<div class="row">
-    <div class="accordion">
-        <ul>
-            {% for item in kolls %}
-            <li tabindex="{{forloop.counter}}" style="background: url(/media/{{item.mainInfo.image_path}}) no-repeat; background-size: contain; background-position: center;">
-                <div>
-                    <a href="#">
-                        <h2>{{item.mainInfo.description}}</h2>
-                        <p>{{item.mainInfo.name}}</p>
-                        <p>{{item.mainInfo.date_start}}</p>
-                    </a>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>-->
-<div class="spacer-50"></div>
-<h1>Ассортимент</h1>
+<div class="title">
+    <span>Ассортимент</span>
+</div>
+<div id="start" class="spacer-25"></div>
 <div class="row">
     <div class="flex">
         {% for item in katalog %}
@@ -62,6 +50,7 @@
         {% endfor %}
     </div>
 </div>
+
 <script>
     // function smallSiteName () {
     //   $( ".site-name" )

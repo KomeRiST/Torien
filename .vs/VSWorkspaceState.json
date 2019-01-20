@@ -5,7 +5,9 @@
     "\\torien\\torien",
     "\\torien\\torien\\static",
     "\\torien\\torien\\static\\css",
+    "\\torien\\torien\\static\\js",
     "\\torien\\torien\\templates"
   ],
+  "SelectedNode": "\\torien\\torien\\models.py",
   "PreviewInSolutionExplorer": true
 }
